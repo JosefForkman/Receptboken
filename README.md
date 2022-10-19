@@ -1,8 +1,36 @@
 INSERT MANDATORY GIF
 
-# Project Title
+# Receptboken
 
-Text about the project and why it exists. This would also be a great place to link the project on One.com.
+`Text about the project and why it exists. This would also be a great place to link the project on One.com.`
+
+# Project idé
+- Kok bok
+    - Se recept
+        - boka av steg i recept
+        - Beskrivning
+        - indrigenser
+    - Söka på recept
+    - Skapa inköpslista
+        - Baserat på vad man vill baka / tillaga kan lägga till enskilda Indrigenser
+    - Skapa ny recept
+        - Bild 
+        - Beskrivning
+        - Lista av steg
+        - Indrigenser
+        - Spara i en kategori
+        - svårt grad
+    - Kommentar
+    - Betyg
+    - Inloggning
+
+## Om jag hinner med
+- Ladda in recept från andra sidor
+- Betalning av någon sort
+- Inloggning med Google & Facebook
+- Ändra recept
+- Responsiv  
+
 
 # Installation
 

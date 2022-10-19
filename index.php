@@ -1,1 +1,1 @@
-<?= 'The Elephpent in the Room'; ?>
+<?php
