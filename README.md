@@ -5,32 +5,37 @@ INSERT MANDATORY GIF
 `Text about the project and why it exists. This would also be a great place to link the project on One.com.`
 
 # Project idé
+
 - Kok bok
-    - Se recept
-        - boka av steg i recept
-        - Beskrivning
-        - indrigenser
-    - Söka på recept
-    - Skapa inköpslista
-        - Baserat på vad man vill baka / tillaga kan lägga till enskilda Indrigenser
-    - Skapa ny recept
-        - Bild 
-        - Beskrivning
-        - Lista av steg
-        - Indrigenser
-        - Spara i en kategori
-        - svårt grad
-    - Kommentar
-    - Betyg
-    - Inloggning
+  - Se recept
+    - boka av steg i recept
+    - Beskrivning
+    - indrigenser
+  - Se Alla recept
+    - [Använd pagination](https://www.allphptricks.com/create-simple-pagination-using-php-and-mysqli/)
+    - Se bara max 10st recept åt gången
+  - Söka på recept
+  - Skapa inköpslista
+    - Baserat på vad man vill baka / tillaga kan lägga till enskilda Indrigenser
+  - Skapa ny recept
+    - Bild
+    - Beskrivning
+    - Lista av steg
+    - Indrigenser
+    - Spara i en kategori
+    - svårt grad
+  - Kommentar
+  - Betyg
+  - Inloggning
 
 ## Om jag hinner med
+
 - Ladda in recept från andra sidor
 - Betalning av någon sort
 - Inloggning med Google & Facebook
 - Ändra recept
-- Responsiv  
-
+- Responsiv
+  - Funka över mobil storlek
 
 # Installation
 
