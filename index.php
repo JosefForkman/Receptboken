@@ -8,11 +8,11 @@
         <title></title>
     </head>
     <body>
-        <header>
+        <header class="active">
             <p>Logga här</p>
-            <div class="hamburger"></div>
+            <div class="hamburger" id="hamburgerOpen"></div>
             <nav>
-                <i class="fa-solid fa-x" style="color: var(--Deep-champagne); font-size: 2rem; cursor: pointer;"></i>
+                <i class="fa-solid fa-x" id="hamburgerClose" style="color: var(--Deep-champagne); font-size: 2rem; cursor: pointer;"></i>
                 <ul>
                     <li><a href="index.php">Hem</a></li>
                     <li><a href="#">Alla recept</a></li>
@@ -27,5 +27,6 @@
             <img src="image/anna-pelzer-IGfIGP5ONV0-unsplash.jpg" alt="">
             <h2>Varför ska man välja Kok boken.</h2>
         </main>
+        <script src="js/index.js"></script>
     </body>
 </html>
