@@ -1,13 +1,18 @@
 // abstracts
-@import './abstracts/variables';
+@import 'abstracts/variables';
 
 // base
-@import './base/typography';
-@import './base/reset';
+@import 'base/typography';
+@import 'base/color';
+@import 'base/reset';
+
+// components
+@import 'components/buttons';
+@import 'components/post';
 
 // layout
-@import './layout/header';
-@import './layout/specer';
+@import 'layout/header';
+@import 'layout/specer';
 
 // sass/
 // |

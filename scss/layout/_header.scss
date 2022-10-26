@@ -47,7 +47,7 @@ header {
         box-sizing: border-box;
         z-index: 10;
 
-        transition: .4s;
+        transition: .4s ease-in-out;
         // animation: navSlide .4s reverse;
 
         i {
@@ -70,7 +70,7 @@ header {
         nav {
             transform: translateX(-50%);
             // animation: navSlide .4s ease-in-out;
-            transition: .4s;
+            transition: .4s ease-in-out;
         }
         &::after {
             position: fixed;
