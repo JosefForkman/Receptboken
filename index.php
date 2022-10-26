@@ -8,7 +8,7 @@
         <title></title>
     </head>
     <body>
-        <header class="active">
+        <header class="pageMargin">
             <p>Logga här</p>
             <div class="hamburger" id="hamburgerOpen"></div>
             <nav>
@@ -23,7 +23,7 @@
                 </ul>
             </nav>
         </header>
-        <main>
+        <main class="pageMargin">
             <img src="image/anna-pelzer-IGfIGP5ONV0-unsplash.jpg" alt="">
             <h2>Varför ska man välja Kok boken.</h2>
         </main>

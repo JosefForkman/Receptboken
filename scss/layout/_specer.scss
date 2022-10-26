@@ -1,0 +1,10 @@
+.pageMargin {
+    margin: 0px 24px;
+}
+
+
+@for $i from 1 to 10 {
+    ul {
+        margin: 1rem 2rem;
+    }
+}

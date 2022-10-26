@@ -6,7 +6,8 @@
 @import './base/reset';
 
 // layout
-@import './layout/header'
+@import './layout/header';
+@import './layout/specer';
 
 // sass/
 // |
@@ -52,4 +53,4 @@
 // |   |– _jquery-ui.scss    # jQuery UI
 // |   …                     # Etc.
 // |
-// `– main.scss              # Main Sass file
+// `– stile.scss              # stile Sass file
