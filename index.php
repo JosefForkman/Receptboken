@@ -8,23 +8,9 @@
         <title></title>
     </head>
     <body>
-        <header class="pageMargin">
-            <p>Logga här</p>
-            <div class="hamburger" id="hamburgerOpen"></div>
-            <nav>
-                <i class="fa-solid fa-x" id="hamburgerClose" style="color: var(--Deep-champagne); font-size: 2rem; cursor: pointer;"></i>
-                <ul>
-                    <li><a href="index.php">Hem</a></li>
-                    <li><a href="#">Alla recept</a></li>
-                    <li><a href="#">Om oss</a></li>
-                    <li><a href="#">Kontakta oss</a></li>
-                    <li><a href="#">Logga in</a></li>
-                    <li><a href="#">Registrera</a></li>
-                </ul>
-            </nav>
-        </header>
+        <?php require('includes/header.include.php') ?>
         <main class="pageMargin">
-            <section id="">
+            <section id="HerroSection">
                 <img src="image/anna-pelzer-IGfIGP5ONV0-unsplash.jpg" alt="">
                 <h2>Varför ska man välja Kok boken.</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Massa ipsum lorem massa risus sed etiam. Ullamcorper pellentesque viverra viverra massa nulla. Habitant integer posuere eget donec commodo risus euismod. Et et tristique.</p>
