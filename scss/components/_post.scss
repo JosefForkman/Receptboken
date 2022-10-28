@@ -4,3 +4,9 @@
     align-items: flex-start;
     gap: 16px;
 }
+
+#Posts {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
