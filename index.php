@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="se">
     <head>
         <meta charset='UTF-8'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://kit.fontawesome.com/a913f4ac89.js" crossorigin="anonymous"></script>
         <link rel='stylesheet' href='css/style.css'>
         <title></title>
     </head>
@@ -25,7 +24,7 @@
                         <button class="tag bg-DeepChampagne">Gluten</button>
                     </div>
                     <p>Saftig och luftig ugnspannkaka när den är som bäst. Enkelt recept på klassisk ugnspannkaka som toppas med vispad grädde och sylt. Den här ugnspannkakan</p>
-                    <a href="#" class="btn bg-GreenSheen">Läs mer</a>
+                    <a href="Recept.php" class="btn bg-GreenSheen">Läs mer</a>
                 </div>
                 <div class="post">
                     <h2 class="text-GreenSheen">Renskavs gryta</h2>
@@ -34,7 +33,7 @@
                         <button class="tag bg-DeepChampagne">Gluten</button>
                     </div>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo magna sodales diam sit lectus id etiam. Pellentesque scelerisque lacinia dictum fermentum sit</p>
-                    <a href="#" class="btn bg-GreenSheen">Läs mer</a>
+                    <a href="Recept.php" class="btn bg-GreenSheen">Läs mer</a>
                 </div>
                 <div class="post">
                     <h2 class="text-GreenSheen">Spageti med köttfärs sås</h2>
@@ -43,7 +42,7 @@
                         <button class="tag bg-DeepChampagne">Gluten</button>
                     </div>
                     <p>Gör en extra stor sats av allas vardagsfavorit, spagetti och köttfärssås, och frys in. Vill du variera smaken, prova med lamm- eller viltfärs istället </p>
-                    <a href="#" class="btn bg-GreenSheen">Läs mer</a>
+                    <a href="Recept.php" class="btn bg-GreenSheen">Läs mer</a>
                 </div>
                 <div class="post">
                     <h2 class="text-GreenSheen">Spageti med köttfärs sås</h2>
@@ -52,10 +51,11 @@
                         <button class="tag bg-DeepChampagne">Gluten</button>
                     </div>
                     <p>Gör en extra stor sats av allas vardagsfavorit, spagetti och köttfärssås, och frys in. Vill du variera smaken, prova med lamm- eller viltfärs istället </p>
-                    <a href="#" class="btn bg-GreenSheen">Läs mer</a>
+                    <a href="Recept.php" class="btn bg-GreenSheen">Läs mer</a>
                 </div>
             </section>
         </main>
+
         <script src="js/index.js"></script>
     </body>
 </html>

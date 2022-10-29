@@ -1,22 +1,37 @@
-// abstracts
-@import 'abstracts/variables';
+/* abstracts */
+@import
+    'abstracts/variables';
 
-// base
-@import 'base/typography';
-@import 'base/color';
-@import 'base/reset';
+/* base */
+@import
+    'base/typography',
+    'base/color',
+    'base/reset';
 
-// components
-@import 'components/buttons';
-@import 'components/tag';
-@import 'components/post';
+/* components */
+@import
+    'components/buttons',
+    'components/tag',
+    'components/stars',
+    'components/portions',
+    'components/post';
 
-// layout
-@import 'layout/header';
-@import 'layout/specer';
+/* layout */
+@import
+    'layout/header',
+    'layout/form',
+    'layout/specer';
 
-// Pages
-@import 'Pages/index'
+/* Pages */
+@import
+    'Pages/index',
+    'Pages/Recept';
+/* vendors */
+@import
+    'vendors/fontawesome/fontawesome.scss',
+    'vendors/fontawesome/solid.scss',
+    'vendors/fontawesome/brands.scss';
+
 
 // sass/
 // |
