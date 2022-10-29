@@ -1,6 +1,8 @@
 <header class="pageMargin">
-    <p>Logga här</p>
-    <div class="hamburger" id="hamburgerOpen"></div>
+    <div class="navWrapper">
+        <a href="index.php">Logga här</a>
+        <div class="hamburger" id="hamburgerOpen"></div>
+    </div>
     <nav>
         <i class="fa-solid fa-x" id="hamburgerClose" style="color: var(--Deep-champagne); font-size: 2rem; cursor: pointer;"></i>
         <ul>

@@ -1,0 +1,56 @@
+.ReceptContainer {
+    img {
+        width: 100%;
+        margin-bottom: 16px;
+    }
+    .ReceptSection {
+        p {
+            margin-block: 16px;
+        }
+        .portions {
+            margin-block: 32px;
+        }
+    }
+
+    #ingrediens {
+        margin-bottom: 3.5rem;
+        h3 {
+            margin-bottom: 1.5rem;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            li {
+                display: grid;
+                grid-template-columns: auto 1fr auto;
+                gap: 8px;
+
+                p:last-child {
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+    #göra {
+        h3 {
+            margin-bottom: 1.5rem;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            li {
+                display: grid;
+                grid-template-columns: auto 1fr;
+                gap: 8px;
+
+                .timer {
+                    grid-column: 1 / -1;
+                }
+            }
+        }
+    }
+}

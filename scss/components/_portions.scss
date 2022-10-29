@@ -1,0 +1,36 @@
+.portions {
+    --border-size: 3px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border: var(--border-size) solid var(--Terra-Cotta);
+    border-radius: 0.5em;
+    padding: 1em 1.5em;
+    // @include fa-icon-solid($fa-var-user);
+
+    span {
+        font-weight: 600;
+    }
+    i {
+        cursor: pointer;
+    }
+
+    &::before, &::after {
+        position: absolute;
+        top: 0;
+        left: 20%;
+        content: '';
+        background-color: var(--Terra-Cotta);
+        width: var(--border-size);
+        height: 100%;
+    }
+    &::before {
+        left: 20%;
+    }
+    &::after {
+        left: 80%;
+    }
+
+}

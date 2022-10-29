@@ -1,9 +1,12 @@
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
     padding: 24px 0px 56px 0px;
 
+    .navWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     .hamburger {
         position: relative;
         width: 30px;
@@ -33,16 +36,15 @@ header {
     nav {
         display: flex;
         flex-direction: column;
-        position: absolute;
+        position: fixed;
         top: 0;
-        left: 50%;
-        transform: translateX(57%);
+        transform: translateX(calc(100% + 24px));
 
         background-color: #fff;
 
         width: 100vw;
 
-        padding: 16px;
+        padding: 16px 40px 32px;
         padding-right: 24px;
         border-radius: 0px 0px 8px 8px;
         box-sizing: border-box;
@@ -60,16 +62,13 @@ header {
             display: flex;
             flex-direction: column;
             gap: 16px;
-            li {
-                list-style: none;
-            }
         }
     }
 
     /* Toggle active nav */
     &.active {
         nav {
-            transform: translateX(-50%);
+            transform: translateX(-24px);
             // animation: navSlide .4s ease-in-out;
             transition: .4s ease-in-out;
         }

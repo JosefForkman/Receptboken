@@ -1,3 +1,10 @@
+/* vendors */
+@import
+    'vendors/fontawesome/fontawesome.scss',
+    'vendors/fontawesome/solid.scss',
+    'vendors/fontawesome/regular.scss',
+    'vendors/fontawesome/brands.scss';
+
 /* abstracts */
 @import
     'abstracts/variables';
@@ -14,6 +21,8 @@
     'components/tag',
     'components/stars',
     'components/portions',
+    'components/timer',
+    'components/navRecept',
     'components/post';
 
 /* layout */
@@ -26,11 +35,6 @@
 @import
     'Pages/index',
     'Pages/Recept';
-/* vendors */
-@import
-    'vendors/fontawesome/fontawesome.scss',
-    'vendors/fontawesome/solid.scss',
-    'vendors/fontawesome/brands.scss';
 
 
 // sass/
