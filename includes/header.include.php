@@ -10,8 +10,8 @@
             <li><a href="#">Alla recept</a></li>
             <li><a href="#">Om oss</a></li>
             <li><a href="#">Kontakta oss</a></li>
-            <li><a href="#">Logga in</a></li>
-            <li><a href="#">Registrera</a></li>
+            <li><a href="LogaIn.php">Logga in</a></li>
+            <li><a href="Registrera.php">Registrera</a></li>
         </ul>
     </nav>
 </header>

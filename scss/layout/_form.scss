@@ -1,3 +1,20 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+
+    .submitContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+            font-weight: 200;
+            text-decoration: underline;
+        }
+    }
+}
 input[type="checkbox"] {
     position: relative;
     font-size: 1rem;
@@ -19,5 +36,17 @@ input[type="checkbox"] {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+}
+
+input[type="password"], input[type="email"] {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    border: 2px solid var(--Terra-Cotta);
+    border-radius: 0.5em;
+    padding: .5em 1em;
+
+    &::placeholder {
+        color: var(--Independence);
     }
 }
