@@ -7,7 +7,7 @@
         <title></title>
     </head>
     <body>
-        <?php require('includes/header.include.php') ?>
+        <?php require('includes/header.inc.php') ?>
 
         <main class="pageMargin">
             <h2>Logga In</h2>

@@ -7,7 +7,7 @@
         <title></title>
     </head>
     <body>
-        <?php require('includes/header.include.php') ?>
+        <?php require('includes/header.inc.php') ?>
         <main class="ReceptContainer">
             <img src="image/homescreenify-sA3wymYqyaI-unsplash.jpg" alt="Skål med Spageti med köttfärs sås med grönt löv i mitten">
             <section class="ReceptSection pageMargin">

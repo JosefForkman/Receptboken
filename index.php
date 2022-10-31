@@ -7,7 +7,7 @@
         <title></title>
     </head>
     <body>
-        <?php require('includes/header.include.php') ?>
+        <?php require('includes/header.inc.php') ?>
         <main class="pageMargin">
             <section id="HerroSection">
                 <img src="image/anna-pelzer-IGfIGP5ONV0-unsplash.jpg" alt="">

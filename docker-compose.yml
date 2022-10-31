@@ -1,0 +1,29 @@
+version: '3.4'
+
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    volumes:
+      - ./MySQL/data:/var/lib/mysql
+      - ./MySQL/recept.sql:/docker-entrypoint-initdb.d/recept.sql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: ReceptDB
+      MYSQL_USER: ReceptUser
+      MYSQL_PASSWORD: ReceptPassword
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    depends_on:
+        - db
+    environment:
+      # - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=ReceptUser
+      - PMA_PASSWORD=ReceptPassword
