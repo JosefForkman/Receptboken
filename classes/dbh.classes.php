@@ -4,10 +4,10 @@
             try {
                 # Skapar variablar för DB
                 $servername = "localhost";
-                $username = "Café";
-                $password = "v/lQ)KQL0rGkxz.A";
-                $dbname = "café";
-                
+                $username = "ReceptUser";
+                $password = "ReceptPassword";
+                $dbname = "ReceptDB";
+
                 # Starar en PDO anslutning till DB
                 $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 
