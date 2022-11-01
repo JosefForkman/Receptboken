@@ -39,7 +39,7 @@ input[type="checkbox"] {
     }
 }
 
-input[type="password"], input[type="email"] {
+input[type="password"], input[type="email"], input[type="text"] {
     font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
     border: 2px solid var(--Terra-Cotta);

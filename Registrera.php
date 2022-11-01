@@ -14,6 +14,8 @@
             <form action="" method="post">
                 <label for="email" class="text-Independence">E-post</label>
                 <input type="email" class="text-Independence" name="" id="email" placeholder="E-post">
+                <label for="name" class="text-Independence">Användarnamn</label>
+                <input type="text" class="text-Independence" name="" id="name" placeholder="Användarnamn">
                 <label for="password" class="text-Independence">Lösenord</label>
                 <input type="password" class="text-Independence" name="" id="password" placeholder="Lösenord">
                 <label for="passwordRepeat" class="text-Independence">Lösenord igen</label>
