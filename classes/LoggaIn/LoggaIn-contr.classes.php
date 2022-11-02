@@ -12,22 +12,16 @@
         }
 
         public function LoggaInAnvändare() {
-            if ($this->emptyInput()) {
-                # code...
+            if (!$this->emptyInput()) {
+                header('location: ../../LogaIn.php?error=tomInput');
+                exit();
             }
-            $user = $this->getUser($this->Lösenord,  $this->Mail);
-            var_dump(empty($user));
-            if (empty($user)) {
-                # Start session
-                session_start();
-                $_SESSION['userName'] = $user['name'];
-                $_SESSION['userMail'] = $user['mail'];
-            }
+            $this->getUser($this->Lösenord,  $this->Mail);
         }
 
         # Error handling
         private function emptyInput () {
-            return empty($this->Lösenord) || empty($this->Mail);
+            return empty($this->Lösenord) || empty($this->Mail) ? false : true;
         }
     }
 ?>

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <header class="pageMargin">
     <div class="navWrapper">
         <a href="index.php">Logga här</a>
@@ -10,8 +13,16 @@
             <li><a href="#">Alla recept</a></li>
             <li><a href="#">Om oss</a></li>
             <li><a href="#">Kontakta oss</a></li>
-            <li><a href="LogaIn.php">Logga in</a></li>
-            <li><a href="Registrera.php">Registrera</a></li>
+
+            <?php if(!empty($_SESSION)): ?>
+                <li><a href="#">Profil</a></li>
+                <li><a href="includes/logut/logut.inc.php">Logga ut</a></li>
+
+            <?php else: ?>
+                <li><a href="LogaIn.php">Logga in</a></li>
+                <li><a href="Registrera.php">Registrera</a></li>
+
+            <?php endif ?>
         </ul>
     </nav>
 </header>

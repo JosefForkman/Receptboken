@@ -4,6 +4,6 @@
     session_unset();
     session_destroy();
 
-    # skicka tillbaka användaren till Login
-    header('location: ../../LogIn.php?error=none');
+    # skicka tillbaka användaren till index
+    header('location: ../../index.php?error=none');
 ?>

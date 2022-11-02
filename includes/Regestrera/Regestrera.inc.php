@@ -16,5 +16,8 @@
         $registrera = new RegistreraContr($name, $Lösenord, $LösenordIgen, $Mail);
 
         $registrera->registreraAnvändare();
+
+        # Om allt gick bra hamnar användaren på login sidan
+        header('location: ../../LogaIn.php?error=none');
     }
 ?>

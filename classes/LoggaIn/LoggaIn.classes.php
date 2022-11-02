@@ -26,19 +26,69 @@
             # $stmt->execute() return true / false
             if ( !$stmt->execute() ) {
                 $stmt = null;
-                header('location: ../../Registrera.php?error=stmtMisslyckades');
+                header('location: ../../LogaIn.php?error=stmtMisslyckades');
                 exit();
             }
+
+            # Hämtar användare
             $result = $stmt->get_result();
-            $user = $result->fetch_all(MYSQLI_ASSOC);
+            $Användare = $result->fetch_assoc();
+
+            var_dump($Användare);
+
+            # kontrollera Lösenord (true om match annars false)
+            $kontrolleraLösenord = password_verify($Lösenord, $Användare['password']);
+
+            if ($kontrolleraLösenord) {
+               # Startar session och lägger till användare i session
+               session_start();
+               $_SESSION["AnvändareId"] = $Användare['id'];
+               $_SESSION["AnvändareNamn"] = $Användare['name'];
+
+               # Nollställer $conn variabeln
+               $conn->close();
+            } else {
+                header('location: ../../LogIn.php?error=FelLösenord');
+
+                # Nollställer $conn variabeln och avslutar koden
+                $stmt->close();
+                exit();
+            }
             $stmt->close();
-            return $user;
         }
 
+        # Kollar om det finna en användare med specifik mail
         protected function kontrolleraAnvändare($Mail) {
-            $stmt = $this->getConnectionMySQL()->prepare('SELECT id FROM kund WHERE Mail = :Mail;');
-            // $stmt->bindParam(':Mail', $Mail);
-            $stmt->bind_param("sss", $Mail);
+            # Skapar variablar för DB
+            $servername = "localhost";
+            $username = "ReceptUser";
+            $password = "ReceptPassword";
+            $dbname = "ReceptDB";
+
+            # Skapar anslutning till DB
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            // Check connection
+            if ($conn->connect_error) {
+                die("Anslutningen misslyckades: " . $conn->connect_error);
+            }
+
+            $stmt = $conn->prepare('SELECT id FROM kund WHERE Mail = ?;');
+            $stmt->bind_param("s", $Mail);
+
+            # $stmt->execute() return true / false
+            if (!$stmt->execute()) {
+                $stmt->close();
+
+                header('location: ../../LogaIn.php?error=stmtMisslyckades');
+                exit();
+            }
+
+            # $stmt->num_rows return nummer av hittade i DB
+            $stmt->store_result();
+            return $stmt->num_rows > 0 ? false : true;
+
+            $conn->close();
         }
     }
 ?>

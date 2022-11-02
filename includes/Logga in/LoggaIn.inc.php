@@ -13,6 +13,10 @@
         # Skapar användare
         $LoggaIn = new LoggaInContr($Lösenord, $Mail);
 
+        # Error plus loggar in användaren
         $LoggaIn->LoggaInAnvändare();
+
+        # Om allt gick bra hamnar användaren på tack sidan
+        header('location: ../../index.php?error=none');
     }
 ?>
