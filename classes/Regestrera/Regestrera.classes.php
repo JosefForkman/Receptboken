@@ -17,7 +17,7 @@
             ## Kollade in w3schools om prepared statement https://www.w3schools.com/php/php_mysql_prepared_statements.asp
 
             $stmt = $this->getConnectionMySQL()->prepare("INSERT INTO User (mail, password, name) VALUES (?, ?, ?)");
-            // $stmt = $this->getConnectionMySQL()->prepare("INSERT INTO User (mail, password, name) VALUES (:Mail, :Lösenord, :Name)");
+            // $stmt = $this->getConnectionPDO()->prepare("INSERT INTO User (mail, password, name) VALUES (:Mail, :Lösenord, :Name)");
             // $stmt = $this->getConnectionMySQL()->prepare("INSERT INTO kund (Förnamn, Efternamn, Lösenord, Mail, ProfilBild) VALUES (Förnamn = ?, Efternamn = ?, Lösenord = ?, Mail = ?, ProfilBild = ?)");
 
             # placerar in alla korkkorrekta värden i prepared statement
@@ -25,12 +25,13 @@
             // $stmt->bindParam(':Lösenord', $hashLösenord);
             // $stmt->bindParam(':Mail', $Mail);
 
-            $stmt->bind_param("sss",$Mail, $hashLösenord, $name);
+            // $stmt->bind_param("sss",$Mail, $hashLösenord, $name);
 
-            $data = [':Name' => $name, ':Lösenord' => $hashLösenord, ':Mail' => $Mail];
+            $data = [$Mail, $hashLösenord, $name ];
+            $stmt->
 
             # $stmt->execute() return true / false
-            if ( !$stmt->execute() ) {
+            if ( !$stmt->execute($data) ) {
                 $stmt = null;
                 header('location: ../../Registrera.php?error=stmtMisslyckades');
                 exit();

@@ -11,14 +11,14 @@
 
         <main class="pageMargin">
             <h2>Logga In</h2>
-            <form action="" method="post">
+            <form action="includes/Logga in/LoggaIn.inc.php" method="post">
                 <label for="email" class="text-Independence">E-post</label>
-                <input type="email" class="text-Independence" name="" id="email" placeholder="E-post">
+                <input type="email" class="text-Independence" name="mail" id="email" placeholder="E-post">
                 <label for="password" class="text-Independence">Lösenord</label>
-                <input type="password" class="text-Independence" name="" id="password" placeholder="Lösenord">
+                <input type="password" class="text-Independence" name="pass" id="password" placeholder="Lösenord">
                 <div class="submitContainer">
                     <a href="Registrera.php" class="text-Independence">Har inget konto?</a>
-                    <button class="btn bg-TerraCotta">Logga in</button>
+                    <button name="submit" class="btn bg-TerraCotta">Logga in</button>
                 </div>
             </form>
         </main>
