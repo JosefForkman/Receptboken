@@ -16,6 +16,10 @@
                 header('location: ../../LogaIn.php?error=tomInput');
                 exit();
             }
+            if ($this->kontrolleraAnvändare($this->Mail)) {
+                header('location: ../../LogaIn.php?error=användareNotFund');
+                exit();
+            }
             $this->getUser($this->Lösenord,  $this->Mail);
         }
 

@@ -73,7 +73,7 @@
                 die("Anslutningen misslyckades: " . $conn->connect_error);
             }
 
-            $stmt = $conn->prepare('SELECT id FROM kund WHERE Mail = ?;');
+            $stmt = $conn->prepare('SELECT id FROM User WHERE Mail = ?;');
             $stmt->bind_param("s", $Mail);
 
             # $stmt->execute() return true / false
