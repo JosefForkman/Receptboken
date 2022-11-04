@@ -58,7 +58,7 @@ INSERT MANDATORY GIF
 1. Ladda ner [Docker Desktop](https://www.docker.com/products/docker-desktop)
 2. Installera och följ instruktionerna som dyker upp när du kör installations filen.
 3. Öppna terminalen och kör `docker-compose up -d`.  
-4. Nu är databasen uppe. phpMyAdmin är också uppe på [localhost:2000](localhost:2000) så kan man se min databas också.
+4. Nu är databasen uppe. phpMyAdmin är också uppe på [localhost:2000](http://localhost:2000) så kan man se min databas också.
 
 # Code Review
 
