@@ -39,7 +39,26 @@ INSERT MANDATORY GIF
 
 # Installation
 
-Add the installation instructions.
+## Generera css från scss
+1. Ladda ner [Live Sass Compilar](https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass)
+2. Legg till detta i din inställningar 
+``` json
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "~/../css/"
+    }
+  ],
+```
+3. Tryck på `Watch Sass` som man hittar längst ner till höger
+4. Live Sass Compilar kommer nu att skapa en css map med css fil inuti 
+
+## Starta databas till kokboken
+1. Ladda ner [Docker Desktop](https://www.docker.com/products/docker-desktop)
+2. Installera och följ instruktionerna som dyker upp när du kör installations filen.
+3. Öppna terminalen och kör `docker-compose up -d`.  
+4. Nu är databasen uppe. phpMyAdmin är också uppe på [localhost:2000](localhost:2000) så kan man se min databas också.
 
 # Code Review
 
