@@ -45,7 +45,7 @@ Add the installation instructions.
 
 Code review written by [Jonas Mårtensson](https://github.com/jonas128).
 
-1. Most requirements are met. The code contains different types of variables and multiple php-files.
+1. All requirements are met. The code contains different types of variables and multiple php-files.
 2. `index.php: 6` - I have some problems understanding the styling of this page: why do you refer to a style.css file and then use style.scss?  
 3. The styling of page does not work when I run it in local server. 
 4. All the web fonts you uploaded are not in use.
