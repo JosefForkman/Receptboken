@@ -1,6 +1,9 @@
-INSERT MANDATORY GIF
+![The Swedish Chef](https://media.giphy.com/media/10u6gt11vnm812/giphy.gif)
 
 # Receptboken
+[Länk till kokboken](https://forkman.se)
+
+Kokboken är en hemsida där man kan se andras recept och dela sina egna recept. Heminsidan är insparrad av [Ica kvantum recept](https://www.ica.se/recept/) och [Arla recept](https://www.arla.se/recept/).
 
 `Text about the project and why it exists. This would also be a great place to link the project on One.com.`
 
@@ -24,8 +27,6 @@ INSERT MANDATORY GIF
     - Indrigenser
     - Spara i en kategori
     - svårt grad
-  - Kommentar
-  - Betyg
   - Inloggning
 
 ## Om jag hinner med
@@ -36,10 +37,23 @@ INSERT MANDATORY GIF
 - Ändra recept
 - Responsiv
   - Funka över mobil storlek
+- Kommentera recept
+- Betyg
+- Spara sina favoriter i kategorier
+  - Kunna exportera sina recept till PDF m.m
 
 # Installation
+  För att kunna köra kokboken behöver du ha gjort några saker först. Det första är att göra sass till css. 
+  
+  Det andra är att starta databasen. Detta har jag gjort enkelt med att jag har gjort en docker-compose fil med MySQL och phpMyAdmin.
 
-## Generera css från scss
+  Det du behöver för att köra hmsidan är 
+  - VS Code
+  - Live Sass Compiler plugin till VS Code
+  - Docker Desktop
+  - Två koppar kafe :coffee::coffee:
+
+## Generera css från scss (Live Sass Compiler)
 1. Ladda ner [Live Sass Compilar](https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass)
 2. Legg till detta i din inställningar 
 ``` json
@@ -54,7 +68,7 @@ INSERT MANDATORY GIF
 3. Tryck på `Watch Sass` som man hittar längst ner till höger
 4. Live Sass Compilar kommer nu att skapa en css map med css fil inuti 
 
-## Starta databas till kokboken
+## Starta databas till kokboken (Docker Desktop)
 1. Ladda ner [Docker Desktop](https://www.docker.com/products/docker-desktop)
 2. Installera och följ instruktionerna som dyker upp när du kör installations filen.
 3. Öppna terminalen och kör `docker-compose up -d`.  
