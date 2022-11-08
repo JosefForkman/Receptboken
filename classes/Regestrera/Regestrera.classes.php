@@ -2,7 +2,7 @@
     declare(strict_types=1);
     class Registrera extends Dbh {
 
-        protected function setUser(string $name, string $Lösenord, string $LösenordIgen, string $Mail) {
+        protected function setUser(string $name, string $password, string $passwordAgain, string $Mail) {
             # Skapar variablar för DB
             $servername = "localhost";
             $dbUsername = "ReceptUser";
@@ -18,21 +18,21 @@
             }
 
             # Kollar om lösenorden matchar varandra
-            if ($Lösenord != $LösenordIgen) {
+            if ($password != $passwordAgain) {
                 header('location: ../../Registrera.php?error=passwordNotMatch');
                 exit();
             }
 
             # hash lösenord
             ## https://www.php.net/manual/en/function.password-hash.php
-            $hashLösenord = password_hash($Lösenord, PASSWORD_DEFAULT);
+            $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
             # Gör en prepared statement
             ## Kollade in w3schools om prepared statement https://www.w3schools.com/php/php_mysql_prepared_statements.asp
 
             $stmt = $conn->prepare("INSERT INTO User (mail, password, name) VALUES (?, ?, ?)");
 
-            $stmt->bind_param("sss", strtolower($Mail), $hashLösenord, $name);
+            $stmt->bind_param("sss", strtolower($Mail), $hashPassword, $name);
 
             # $stmt->execute() return true / false
             if ( !$stmt->execute() ) {

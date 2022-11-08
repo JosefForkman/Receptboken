@@ -1,15 +1,15 @@
 <?php
     class RegistreraContr extends Registrera {
         private $name;
-        private $Lösenord;
-        private $LösenordIgen;
+        private $password;
+        private $passwordAgain;
         private $Mail;
 
         # Skapar constructor i class
-        public function __construct(string $name, string $Lösenord, string $LösenordIgen, string $Mail) {
+        public function __construct(string $name, string $password, string $passwordAgain, string $Mail) {
             $this->name = $name;
-            $this->Lösenord = $Lösenord;
-            $this->LösenordIgen = $LösenordIgen;
+            $this->password = $password;
+            $this->passwordAgain = $passwordAgain;
             $this->Mail = $Mail;
         }
 
@@ -27,7 +27,7 @@
                 header('location: ../../Registrera.php?error=MailInkorrekt');
                 exit();
             }
-            if ($this->lösenordMatch() == false) {
+            if ($this->passwordMatch() == false) {
                 header('location: ../../Registrera.php?error=lösesnordMatcharInte');
                 exit();
             }
@@ -36,13 +36,13 @@
                 exit();
             }
 
-            $this->setUser($this->name, $this->Lösenord, $this->LösenordIgen, $this->Mail);
+            $this->setUser($this->name, $this->password, $this->passwordAgain, $this->Mail);
         }
 
         private function empty() {
             $resultat;
 
-            if (empty($this->name) || empty($this->Lösenord) || empty($this->LösenordIgen) || empty($this->Mail)) {
+            if (empty($this->name) || empty($this->password) || empty($this->passwordAgain) || empty($this->Mail)) {
                 $resultat = false;
             } else {
                 $resultat = true;
@@ -69,10 +69,10 @@
             }
             return $resultat;
         }
-        private function lösenordMatch() {
+        private function passwordMatch() {
             $resultat;
 
-            if ($this->Lösenord !== $this->LösenordIgen) {
+            if ($this->password !== $this->passwordAgain) {
                 $resultat = false;
             } else {
                 $resultat = true;
