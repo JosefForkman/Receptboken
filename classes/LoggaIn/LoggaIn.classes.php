@@ -2,7 +2,7 @@
     declare(strict_types=1);
     class LoggaIn extends Dbh {
 
-        protected function getUser(string $Lösenord, string $Mail) {
+        protected function getUser(string $Password, string $Mail) {
             # Skapar variablar för DB
             $servername = "localhost";
             $dbUsername = "ReceptUser";
@@ -32,18 +32,18 @@
 
             # Hämtar användare
             $result = $stmt->get_result();
-            $Användare = $result->fetch_assoc();
+            $user = $result->fetch_assoc();
 
-            var_dump($Användare);
+            var_dump($user);
 
-            # kontrollera Lösenord (true om match annars false)
-            $kontrolleraLösenord = password_verify($Lösenord, $Användare['password']);
+            # kontrollera Password (true om match annars false)
+            $checkPassword = password_verify($Password, $user['password']);
 
-            if ($kontrolleraLösenord) {
+            if ($checkPassword) {
                # Startar session och lägger till användare i session
                session_start();
-               $_SESSION["AnvändareId"] = $Användare['id'];
-               $_SESSION["AnvändareNamn"] = $Användare['name'];
+               $_SESSION["AnvändareId"] = $user['id'];
+               $_SESSION["AnvändareNamn"] = $user['name'];
 
                # Nollställer $conn variabeln
                $conn->close();
@@ -91,4 +91,3 @@
             $conn->close();
         }
     }
-?>

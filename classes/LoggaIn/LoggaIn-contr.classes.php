@@ -2,12 +2,12 @@
     declare(strict_types=1);
 
     class LoggaInContr extends LoggaIn {
-        private $Lösenord;
+        private $password;
         private $Mail;
 
         # Skapar constructor i class
-        public function __construct(string $Lösenord, string $Mail) {
-            $this->Lösenord = $Lösenord;
+        public function __construct(string $password, string $Mail) {
+            $this->password = $password;
             $this->Mail = $Mail;
         }
 
@@ -20,12 +20,12 @@
                 header('location: ../../LogaIn.php?error=användareNotFund');
                 exit();
             }
-            $this->getUser($this->Lösenord,  $this->Mail);
+            $this->getUser($this->password,  $this->Mail);
         }
 
         # Error handling
         private function emptyInput () {
-            return empty($this->Lösenord) || empty($this->Mail) ? false : true;
+            return empty($this->password) || empty($this->Mail) ? false : true;
         }
     }
 ?>
