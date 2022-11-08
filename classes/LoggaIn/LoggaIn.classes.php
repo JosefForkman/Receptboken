@@ -48,7 +48,7 @@
                # Nollställer $conn variabeln
                $conn->close();
             } else {
-                header('location: ../../LogIn.php?error=FelLösenord');
+                header('location: ../../LogaIn.php?error=FelLösenord');
 
                 # Nollställer $conn variabeln och avslutar koden
                 $stmt->close();

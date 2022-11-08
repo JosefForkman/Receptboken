@@ -16,6 +16,7 @@
 
             <?php if(!empty($_SESSION)): ?>
                 <li><a href="#">Profil</a></li>
+                <li><a href="SkapaRecept.php">Skapa recept</a></li>
                 <li><a href="includes/logut/logut.inc.php">Logga ut</a></li>
 
             <?php else: ?>
