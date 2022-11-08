@@ -5,12 +5,12 @@
         protected function getUser(string $Lösenord, string $Mail) {
             # Skapar variablar för DB
             $servername = "localhost";
-            $username = "ReceptUser";
-            $password = "ReceptPassword";
-            $dbname = "ReceptDB";
+            $dbUsername = "ReceptUser";
+            $dbPassword = "ReceptPassword";
+            $dbName = "ReceptDB";
 
             # Skapar anslutning till DB
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
 
             // Check connection
             if ($conn->connect_error) {
@@ -61,12 +61,12 @@
         protected function kontrolleraAnvändare($Mail) {
             # Skapar variablar för DB
             $servername = "localhost";
-            $username = "ReceptUser";
-            $password = "ReceptPassword";
-            $dbname = "ReceptDB";
+            $dbUsername = "ReceptUser";
+            $dbPassword = "ReceptPassword";
+            $dbName = "ReceptDB";
 
             # Skapar anslutning till DB
-            $conn = new mysqli($servername, $username, $password, $dbname);
+            $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
 
             // Check connection
             if ($conn->connect_error) {
