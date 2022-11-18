@@ -7,16 +7,16 @@
 
         # Lägger till class i detta dokument
         require("../../classes/dbh.classes.php");
-        require("../../classes/LoggaIn/LoggaIn.classes.php");
-        require("../../classes/LoggaIn/LoggaIn-contr.classes.php");
+        require("../../classes/User/User.classes.php");
+        require("../../classes/User/User-contr.classes.php");
 
         # Skapar användare
-        $LoggaIn = new LoggaInContr($Lösenord, $Mail);
+        $LoggaIn = new userContr($Lösenord, $Mail);
 
         # Error plus loggar in användaren
         $LoggaIn->LoggaInAnvändare();
 
         # Om allt gick bra hamnar användaren på tack sidan
-        header('location: ../../index.php?error=none');
+        // header('location: ../../index.php?error=none');
     }
 ?>

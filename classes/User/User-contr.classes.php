@@ -2,58 +2,72 @@
     declare(strict_types=1);
 
     class userContr extends User{
+        private $name;
+        private $password;
+        private $passwordAgain;
+        private $Mail;
 
+        # Skapar constructor i class
+        public function __construct(string $name = '', string $password = '', string $passwordAgain = '', string $Mail = '') {
+            $this->name = $name;
+            $this->password = $password;
+            $this->passwordAgain = $passwordAgain;
+            $this->Mail = $Mail;
+        }
+
+        # funktioner för att hantera fel som kan uppstå när man registrerar sig på hemsidan
+        public function registreraAnvändare() {
+            if ($this->empty() == false) {
+                header('location: ../../Registrera.php?error=tomInput');
+                exit();
+            }
+            if ($this->felNamn() == false) {
+                header('location: ../../Registrera.php?error=NamnInkorrekt');
+                exit();
+            }
+            if ($this->felMail() == false) {
+                header('location: ../../Registrera.php?error=MailInkorrekt');
+                exit();
+            }
+            if ($this->passwordMatch() == false) {
+                header('location: ../../Registrera.php?error=lösesnordMatcharInte');
+                exit();
+            }
+            if ($this->mailTagenKoll() == false) {
+                header('location: ../../Registrera.php?error=användareFinnsRedan');
+                exit();
+            }
+
+            $this->insertUser($this->name, $this->password, $this->passwordAgain, $this->Mail);
+        }
+
+        public function LoggaInAnvändare() {
+            // if (!$this->emptyInput()) {
+            //     header('location: ../../LogaIn.php?error=tomInput');
+            //     exit();
+            // }
+            if ($this->kontrolleraAnvändare($this->Mail)) {
+                // header('location: ../../LogaIn.php?error=användareNotFund');
+                // exit();
+            }
+            $this->getUser($this->password,  $this->Mail);
+        }
 
         # Error handling
         private function empty() {
-            $resultat;
-
-            if (empty($this->name) || empty($this->password) || empty($this->passwordAgain) || empty($this->Mail)) {
-                $resultat = false;
-            } else {
-                $resultat = true;
-            }
-            return $resultat;
+            return empty($this->name) || empty($this->password) || empty($this->passwordAgain) || empty($this->Mail) ? false : true;
         }
         private function felNamn() {
-            $resultat;
-
-            if (!preg_match("/^[a-zA-Z0-9]*$/", $this->name)) {
-                $resultat = false;
-            } else {
-                $resultat = true;
-            }
-            return $resultat;
+            return !preg_match("/^[a-zA-Z0-9]*$/", $this->name) ? true : false;
         }
         private function felMail() {
-            $resultat;
-
-            if (!filter_var($this->Mail, FILTER_VALIDATE_EMAIL)) {
-                $resultat = false;
-            } else {
-                $resultat = true;
-            }
-            return $resultat;
+            return !filter_var($this->Mail, FILTER_VALIDATE_EMAIL) ? false : true;
         }
         private function passwordMatch() {
-            $resultat;
-
-            if ($this->password !== $this->passwordAgain) {
-                $resultat = false;
-            } else {
-                $resultat = true;
-            }
-            return $resultat;
+            return $this->password !== $this->passwordAgain ? false : true;
         }
         private function mailTagenKoll() {
-            $resultat;
-
-            if (!$this->kontrolleraAnvändare($this->Mail)) {
-                $resultat = false;
-            } else {
-                $resultat = true;
-            }
-            return $resultat;
+            return !$this->kontrolleraAnvändare($this->Mail) ?  false : true;
         }
     }
 ?>

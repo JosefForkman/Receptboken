@@ -9,11 +9,11 @@
 
         # Lägger till class i detta dokument
         require("../../classes/dbh.classes.php") ;
-        require("../../classes/Regestrera/Regestrera.classes.php");
-        require("../../classes/Regestrera/Regestrera-contr.classes.php");
+        require("../../classes/User/User.classes.php");
+        require("../../classes/User/User-contr.classes.php");
 
         # Skapar användare
-        $registrera = new RegistreraContr($name, $Lösenord, $LösenordIgen, $Mail);
+        $registrera = new userContr($name, $Lösenord, $LösenordIgen, $Mail);
 
         $registrera->registreraAnvändare();
 
