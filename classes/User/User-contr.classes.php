@@ -17,7 +17,7 @@
 
         # funktioner för att hantera fel som kan uppstå när man registrerar sig på hemsidan
         public function registreraAnvändare() {
-            if ($this->empty() == false) {
+            if ($this->empty([$this->name, $this->password, $this->passwordAgain, $this->Mail ])) {
                 header('location: ../../Registrera.php?error=tomInput');
                 exit();
             }
@@ -58,7 +58,6 @@
             foreach ($inputs as $input) {
                 return empty($input);
             }
-            // return empty($this->name) || empty($this->password) || empty($this->passwordAgain) || empty($this->Mail) ? false : true;
         }
         private function felNamn() {
             return !preg_match("/^[a-zA-Z0-9]*$/", $this->name) ? true : false;

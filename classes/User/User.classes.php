@@ -57,7 +57,8 @@
         protected function getUser(string $Password, string $Mail) {
             # Gör en prepared statement
             ## Kollade in w3schools om prepared statement https://www.w3schools.com/php/php_mysql_prepared_statements.asp
-            $stmt = $this->connect()->prepare("SELECT * FROM User Where mail = :yo");
+            $conn = $this->connect();
+            $stmt = $conn->prepare("SELECT * FROM User Where mail = :yo");
             // $Mail = strtolower($Mail);
             // $stmt->bind_param("s", $Mail);
             $Mail = 'strand.vatten@outlook.com';
@@ -89,35 +90,24 @@
                $_SESSION["AnvändareNamn"] = $user['name'];
 
                # Nollställer $conn variabeln
-               $this->connect()->close();
+               $conn = null;
             } else {
                 header('location: ../../LogaIn.php?error=FelLösenord');
 
                 # Nollställer $conn variabeln och avslutar koden
-                $this->connect()->close();
+                $conn = null;
                 exit();
             }
-            $this->connect()->close();
+            $conn = null;
         }
 
         # Kollar om det finna en användare med specifik mail
         protected function kontrolleraAnvändare($Mail) {
-            # Skapar variablar för DB
-            $servername = "localhost";
-            $dbUsername = "ReceptUser";
-            $dbPassword = "ReceptPassword";
-            $dbName = "ReceptDB";
+            $conn = $this->connect();
 
-            # Skapar anslutning till DB
-            $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
-
-            // Check connection
-            if ($conn->connect_error) {
-                die("Anslutningen misslyckades: " . $conn->connect_error);
-            }
-
-            $stmt = $conn->prepare("SELECT id FROM User WHERE Mail = ?;");
-            $stmt->bind_param("s", $Mail);
+            $stmt = $conn->prepare("SELECT id FROM User WHERE Mail = :mail;");
+            // $stmt->bind_param("s", $Mail);
+            $stmt->bindParam(":mail", $Mail);
 
             # $stmt->execute() return true / false
             if (!$stmt->execute()) {
@@ -127,11 +117,11 @@
                 exit();
             }
 
-            # $stmt->num_rows return nummer av hittade i DB
-            $stmt->store_result();
-            return $stmt->num_rows > 0 ? false : true;
+            # Hämtar användare
+            $user = $stmt->fetch(pdo::FETCH_ASSOC);
+            return count($user) > 0 ? false : true;
 
-            $conn->close();
+            $conn = null;
         }
 
         # Anslut till DB
