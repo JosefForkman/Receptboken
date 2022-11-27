@@ -11,12 +11,12 @@
         require("../../classes/User/User-contr.classes.php");
 
         # Skapar användare
-        $LoggaIn = new userContr($Lösenord, $Mail);
+        $LoggaIn = new userContr(password: $Lösenord, Mail: $Mail);
 
         # Error plus loggar in användaren
         $LoggaIn->LoggaInAnvändare();
 
         # Om allt gick bra hamnar användaren på tack sidan
-        // header('location: ../../index.php?error=none');
+        header('location: ../../index.php?error=none');
     }
 ?>

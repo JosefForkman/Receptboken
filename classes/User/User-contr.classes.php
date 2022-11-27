@@ -42,20 +42,23 @@
         }
 
         public function LoggaInAnvändare() {
-            // if (!$this->emptyInput()) {
-            //     header('location: ../../LogaIn.php?error=tomInput');
-            //     exit();
-            // }
+            if ($this->empty([$this->password, $this->Mail])) {
+                header('location: ../../LogaIn.php?error=tomInput');
+                exit();
+            }
             if ($this->kontrolleraAnvändare($this->Mail)) {
-                // header('location: ../../LogaIn.php?error=användareNotFund');
-                // exit();
+                header('location: ../../LogaIn.php?error=användareNotFund');
+                exit();
             }
             $this->getUser($this->password,  $this->Mail);
         }
 
         # Error handling
-        private function empty() {
-            return empty($this->name) || empty($this->password) || empty($this->passwordAgain) || empty($this->Mail) ? false : true;
+        private function empty($inputs) {
+            foreach ($inputs as $input) {
+                return empty($input);
+            }
+            // return empty($this->name) || empty($this->password) || empty($this->passwordAgain) || empty($this->Mail) ? false : true;
         }
         private function felNamn() {
             return !preg_match("/^[a-zA-Z0-9]*$/", $this->name) ? true : false;
