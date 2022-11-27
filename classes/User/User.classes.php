@@ -1,26 +1,7 @@
 <?php
     declare(strict_types=1);
 
-    class User{
-        // protected $pdo;
-
-        // public function __construct() {
-
-        //     try {
-        //         # Skapar variablar för DB
-        //         $servername = "localhost";
-        //         $dbUsername = "ReceptUser";
-        //         $dbPassword = "ReceptPassword";
-        //         $dbName = "ReceptDB";
-
-        //         # Skapar anslutning till DB
-        //         $this->pdo = new PDO("mysql:host=$servername;dbname=$dbName", $dbUsername, $dbPassword);;
-
-        //     } catch(PDOException $e) {
-        //         echo "Connection failed: " . $e->getMessage();
-        //     }
-        // }
-
+    class User extends Dbh{
         # Registrera User
         protected function insertUser(string $name, string $password, string $passwordAgain, string $Mail) {
             # Kollar om lösenorden matchar varandra
@@ -58,11 +39,8 @@
             # Gör en prepared statement
             ## Kollade in w3schools om prepared statement https://www.w3schools.com/php/php_mysql_prepared_statements.asp
             $conn = $this->connect();
-            $stmt = $conn->prepare("SELECT * FROM User Where mail = :yo");
-            // $Mail = strtolower($Mail);
-            // $stmt->bind_param("s", $Mail);
-            $Mail = 'strand.vatten@outlook.com';
-            $stmt->bindParam(":yo", $Mail);
+            $stmt = $conn->prepare("SELECT * FROM User Where mail = :mail");
+            $stmt->bindParam(":mail", $Mail);
 
             # $stmt->execute() return true / false
             if ( !$stmt->execute() ) {
@@ -103,6 +81,7 @@
 
         # Kollar om det finna en användare med specifik mail
         protected function kontrolleraAnvändare($Mail) {
+            # DB anslutning
             $conn = $this->connect();
 
             $stmt = $conn->prepare("SELECT id FROM User WHERE Mail = :mail;");
@@ -111,7 +90,8 @@
 
             # $stmt->execute() return true / false
             if (!$stmt->execute()) {
-                $stmt->close();
+                # Kolla upp om det behövs
+                // $stmt->close();
 
                 header('location: ../../Registrera.php?error=stmtMisslyckades');
                 exit();
@@ -122,40 +102,6 @@
             return count($user) > 0 ? false : true;
 
             $conn = null;
-        }
-
-        # Anslut till DB
-        // public function connect () {
-        //     # Skapar variablar för DB
-        //     $servername = "localhost";
-        //     $dbUsername = "ReceptUser";
-        //     $dbPassword = "ReceptPassword";
-        //     $dbName = "ReceptDB";
-
-        //     # Skapar anslutning till DB
-        //     $conn = new mysqli($servername, $dbUsername, $dbPassword, $dbName);
-
-        //     // Check connection
-        //     if ($conn->connect_error) {
-        //         die("Connection failed: " . $conn->connect_error);
-        //     }
-
-        //     $this->pdo = $conn;
-        // }
-        public function connect () {
-            try {
-                # Skapar variablar för DB
-                $servername = "localhost";
-                $dbUsername = "ReceptUser";
-                $dbPassword = "ReceptPassword";
-                $dbName = "ReceptDB";
-
-                # Skapar anslutning till DB
-                return new PDO("mysql:host=$servername;dbname=$dbName", $dbUsername, $dbPassword);;
-
-            } catch(PDOException $e) {
-                echo "Connection failed: " . $e->getMessage();
-            }
         }
     }
 ?>
