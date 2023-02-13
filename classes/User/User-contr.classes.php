@@ -1,7 +1,7 @@
 <?php
     declare(strict_types=1);
 
-    class userContr extends User{
+    class userContr extends User {
         private $name;
         private $password;
         private $passwordAgain;
@@ -33,7 +33,7 @@
                 header('location: ../../Registrera.php?error=lösesnordMatcharInte');
                 exit();
             }
-            if ($this->mailTagenKoll() == false) {
+            if ($this->mailTagenKoll() == true) {
                 header('location: ../../Registrera.php?error=användareFinnsRedan');
                 exit();
             }
@@ -46,7 +46,7 @@
                 header('location: ../../LogaIn.php?error=tomInput');
                 exit();
             }
-            if ($this->kontrolleraAnvändare($this->Mail)) {
+            if (!$this->kontrolleraAnvändare($this->Mail)) {
                 header('location: ../../LogaIn.php?error=användareNotFund');
                 exit();
             }
@@ -54,21 +54,21 @@
         }
 
         # Error handling
-        private function empty($inputs) {
+        private function empty(array $inputs): bool {
             foreach ($inputs as $input) {
                 return empty($input);
             }
         }
-        private function felNamn() {
-            return !preg_match("/^[a-zA-Z0-9]*$/", $this->name) ? true : false;
+        private function felNamn(): bool {
+            return preg_match("/^[a-zA-Z0-9 ]*$/", $this->name) ? true : false;
         }
-        private function felMail() {
+        private function felMail(): bool {
             return !filter_var($this->Mail, FILTER_VALIDATE_EMAIL) ? false : true;
         }
-        private function passwordMatch() {
+        private function passwordMatch(): bool {
             return $this->password !== $this->passwordAgain ? false : true;
         }
-        private function mailTagenKoll() {
+        private function mailTagenKoll(): bool {
             return !$this->kontrolleraAnvändare($this->Mail) ?  false : true;
         }
     }

@@ -1,6 +1,7 @@
 <?php
     declare(strict_types=1);
     if (isset($_POST["submit"])) {
+        
         # Tar data från Registrerings formuläret
         $name = $_POST['name'];
         $Lösenord = $_POST["pass"];

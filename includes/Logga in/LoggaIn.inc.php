@@ -1,6 +1,7 @@
 <?php
     declare(strict_types=1);
     if (isset($_POST["submit"])) {
+
         # Tar data från LoggaIn formuläret
         $Mail = $_POST["mail"];
         $Lösenord = $_POST["pass"];

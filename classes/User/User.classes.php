@@ -2,8 +2,12 @@
     declare(strict_types=1);
 
     class User extends Dbh{
+
         # Registrera User
         protected function insertUser(string $name, string $password, string $passwordAgain, string $Mail) {
+            # Ansluter till DB
+            $conn = $this->connect();
+
             # Kollar om lösenorden matchar varandra
             if ($password != $passwordAgain) {
                 header('location: ../../Registrera.php?error=passwordNotMatch');
@@ -22,9 +26,14 @@
 
             # Gör en prepared statement
             ## Kollade in w3schools om prepared statement https://www.w3schools.com/php/php_mysql_prepared_statements.asp
-            $stmt = $this->pdo->prepare("INSERT INTO User (mail, password, name) VALUES (?, ?, ?)");
+            $stmt = $conn->prepare("INSERT INTO User (mail, password, name) VALUES (:mail, :password, :name)");
 
-            $stmt->bind_param("sss", strtolower($Mail), $hashPassword, $name);
+            $Mail = strtolower($Mail);
+
+            # Bind parameter till SQL fråga
+            $stmt->bindParam(":mail", $Mail);
+            $stmt->bindParam(":password", $hashPassword);
+            $stmt->bindParam(":name", $name);
 
             # $stmt->execute() return true / false
             if ( !$stmt->execute() ) {
@@ -50,13 +59,7 @@
             }
 
             # Hämtar användare
-            // $result = $stmt->get_result();
-            // $user = $result->fetch_assoc();
             $user = $stmt->fetch(pdo::FETCH_ASSOC);
-
-            // echo "<pre>";
-            // var_dump($user);
-            // echo "</pre>";
 
             # kontrollera Password (true om match annars false)
             $checkPassword = password_verify($Password, $user['password']);
@@ -80,12 +83,11 @@
         }
 
         # Kollar om det finna en användare med specifik mail
-        protected function kontrolleraAnvändare($Mail) {
+        protected function kontrolleraAnvändare($Mail): bool {
             # DB anslutning
             $conn = $this->connect();
 
             $stmt = $conn->prepare("SELECT id FROM User WHERE Mail = :mail;");
-            // $stmt->bind_param("s", $Mail);
             $stmt->bindParam(":mail", $Mail);
 
             # $stmt->execute() return true / false
@@ -99,9 +101,14 @@
 
             # Hämtar användare
             $user = $stmt->fetch(pdo::FETCH_ASSOC);
-            return count($user) > 0 ? false : true;
 
             $conn = null;
+
+            # Använder två "!" för att vara säker att man alltid kommer få en bool
+            return !!$user;
+
+            # Om inte den övre funkar gå till baka till denna und er
+            // return count($user) > 0 ? false : true;
         }
     }
 ?>
