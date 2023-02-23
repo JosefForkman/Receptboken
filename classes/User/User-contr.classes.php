@@ -1,6 +1,10 @@
 <?php
     declare(strict_types=1);
 
+    require dirname(__DIR__, 2) . "/vendor/autoload.php";
+
+    use Josef\Receptboken\http\http;
+
     class userContr extends User {
         private $name;
         private $password;
@@ -18,12 +22,14 @@
         # funktioner för att hantera fel som kan uppstå när man registrerar sig på hemsidan
         public function registreraAnvändare() {
             if ($this->empty([$this->name, $this->password, $this->passwordAgain, $this->Mail ])) {
-                header('location: ../../Registrera.php?error=tomInput');
-                exit();
+                http::redirect('Registrera.php', ["error" => "tomInput"]);
+                // header('location: ../../Registrera.php?error=tomInput');
+                // exit();
             }
             if ($this->felNamn() == false) {
-                header('location: ../../Registrera.php?error=NamnInkorrekt');
-                exit();
+                http::redirect('Registrera.php', ["error" => "NamnInkorrekt"]);
+                // header('location: ../../Registrera.php?error=NamnInkorrekt');
+                // exit();
             }
             if ($this->felMail() == false) {
                 header('location: ../../Registrera.php?error=MailInkorrekt');
