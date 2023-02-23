@@ -22,14 +22,12 @@
         # funktioner för att hantera fel som kan uppstå när man registrerar sig på hemsidan
         public function registreraAnvändare() {
             if ($this->empty([$this->name, $this->password, $this->passwordAgain, $this->Mail ])) {
-                http::redirect('Registrera.php', ["error" => "tomInput"]);
-                // header('location: ../../Registrera.php?error=tomInput');
-                // exit();
+                header('location: ../../Registrera.php?error=tomInput');
+                exit();
             }
             if ($this->felNamn() == false) {
-                http::redirect('Registrera.php', ["error" => "NamnInkorrekt"]);
-                // header('location: ../../Registrera.php?error=NamnInkorrekt');
-                // exit();
+                header('location: ../../Registrera.php?error=NamnInkorrekt');
+                exit();
             }
             if ($this->felMail() == false) {
                 header('location: ../../Registrera.php?error=MailInkorrekt');
