@@ -1,6 +1,6 @@
 <?php
-    namespace Josef\Receptboken\vallidation;
     declare(strict_types=1);
+    namespace Josef\Receptboken\vallidation;
 
     class input {
         public static function empty(string $input): bool

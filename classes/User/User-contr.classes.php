@@ -6,10 +6,10 @@
     use Josef\Receptboken\http\http;
 
     class userContr extends User {
-        private $name;
-        private $password;
-        private $passwordAgain;
-        private $Mail;
+        private string $name;
+        private string $password;
+        private string $passwordAgain;
+        private string $Mail;
 
         # Skapar constructor i class
         public function __construct(string $name = '', string $password = '', string $passwordAgain = '', string $Mail = '') {
@@ -19,7 +19,7 @@
             $this->Mail = $Mail;
         }
 
-        # funktioner för att hantera fel som kan uppstå när man registrerar sig på hemsidan
+        # Funktioner för att hantera fel som kan uppstå när man registrerar sig på hemsidan
         public function registreraAnvändare() {
             if ($this->empty([$this->name, $this->password, $this->passwordAgain, $this->Mail ])) {
                 header('location: ../../Registrera.php?error=tomInput');

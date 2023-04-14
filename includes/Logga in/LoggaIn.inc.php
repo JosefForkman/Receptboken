@@ -1,5 +1,9 @@
 <?php
     declare(strict_types=1);
+
+    require dirname(__DIR__, 2) . "/vendor/autoload.php";
+    use Josef\Receptboken\http\http;
+
     if (isset($_POST["submit"])) {
 
         # Tar data från LoggaIn formuläret
@@ -18,6 +22,8 @@
         $LoggaIn->LoggaInAnvändare();
 
         # Om allt gick bra hamnar användaren på tack sidan
-        header('location: ../../index.php?error=none');
+        http::redirect('index.php');
     }
+
+    http::redirect('index.php');
 ?>
