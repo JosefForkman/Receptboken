@@ -9,11 +9,11 @@
         }
         public static function matchName(string $input): bool
         {
-            return preg_match("/^[a-zA-Z0-9 ]*$/", $input) ? true : false;
+            return (bool)preg_match("/^[a-zA-Z0-9 ]*$/", $input);
         }
         public static function matchMail(string $input): bool
         {
-            return filter_var($input, FILTER_VALIDATE_EMAIL) ? true : false;
+            return (bool)filter_var($input, FILTER_VALIDATE_EMAIL);
         }
         public static function matchPassword(string $password, string $passwordAgain): bool
         {

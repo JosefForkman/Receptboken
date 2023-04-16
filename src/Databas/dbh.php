@@ -28,9 +28,7 @@
                 ];
 
                 # Skapar anslutning till DB
-                $conn = new PDO("mysql:host=$servername;dbname=$dbName", $dbUsername, $dbPassword, $option);
-
-                return $conn;
+                return new PDO("mysql:host=$servername;dbname=$dbName", $dbUsername, $dbPassword, $option);
             } catch(PDOException $e) {
                 echo "MySQL misslyckades att ansluta sig: " . $e->getMessage();
                 die();
